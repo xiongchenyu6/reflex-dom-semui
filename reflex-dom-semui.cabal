@@ -35,13 +35,17 @@ library
     Reflex.Dom.SemanticUI.Input
     Reflex.Dom.SemanticUI.Modal
     Reflex.Dom.SemanticUI.RadioGroup
-
+    
+  if impl(ghcjs)
+    build-depends: ghcjs-base
+  if !impl(ghcjs)
+    build-depends: ghcjs-base-stub
+    
   build-depends:
       base       >= 4.8 && < 4.12
     , containers
     , data-default
     , file-embed >= 0.0.10 && < 0.1
-    , ghcjs-base
     , ghcjs-dom
     , jsaddle >= 0.8.0.0 && < 0.10
     , lens
